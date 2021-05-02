@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="list" cdkDropList [cdkDropListData]="list?.items" (cdkDropListDropped)="drop($event)">
+    <div>
+      <div class="list-header">
+        <div class="delete-list-button">
+          <a mat-button (click)="deleteList(list.id)">
+            <mat-icon aria-hidden="false" aria-label="Delete list">close</mat-icon>
+          </a>
+        </div>
+        <h2 class="text-center">{{list?.name}}</h2>
+      </div>
+      <mat-card class="list-item" color="primary" *ngFor="let item of list?.items" cdkDrag>
+        <mat-card-header class="card-header">
+          <a mat-button class="delete-item" (click)="deleteItem(item.id)" color="white">
+            <mat-icon aria-hidden="false" aria-label="Delete Item">close</mat-icon>
+          </a>
+          <h2 class="item-header">{{item.title}}</h2>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{item.description}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <button mat-fab class="fab-button" (click)="openDialogue()" color="accent">
+      <mat-icon aria-hidden="false" aria-label="Add New Item">add</mat-icon>
+    </button>
+  </div>
+</div>
+

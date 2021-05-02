@@ -1,0 +1,17 @@
+<div class="navbar">
+  <h1>Trello Board</h1>
+</div>
+
+
+<div class="add-list-button-wrapper">
+  <button (click)="addNewListDialogue()" class="add-list-button" mat-raised-button color="primary">Add List</button>
+</div>
+<div class="list-container" cdkDropListGroup>
+  <app-list
+    *ngFor="let list of lists"
+    [list]="list" [id]="list.id"
+    (updateListEvent)="updateList()"
+    (deleteListEvent)="deleteList($event)"
+  >
+  </app-list>
+</div>
